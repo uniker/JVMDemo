@@ -26,14 +26,14 @@ public class WaitNotify {
                 // 当条件不满足时,继续wait,同时释放了lock的锁
                 while (flag){
                     try{
-                        Logger.info("{} flag is true. wait @ {}", Thread.currentThread(), time());
+                        Logger.info("{} flag is {}. wait @ {}", Thread.currentThread(), flag, time());
                         lock.wait();
                     }catch (InterruptedException e){
                         Logger.error("ERROR");
                     }
                 }
 
-                Logger.info("{} flag is false. running @ {}", Thread.currentThread(), time());
+                Logger.info("{} flag is {}. running @ {}", Thread.currentThread(), flag, time());
             }
         }
     }
